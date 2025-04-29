@@ -11,7 +11,7 @@ def fetch_filtered_emails(username, app_password, allowed_senders=None, extract_
     mail.login(username, app_password)
     mail.select("inbox")
 
-    result, data = mail.search(None, "ALL")
+    result, data = mail.search("UTF-8", "ALL")
     email_ids = data[0].split()[-num_emails:]
 
     for eid in reversed(email_ids):
